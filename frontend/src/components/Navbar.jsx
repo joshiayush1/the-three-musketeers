@@ -1,11 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ttmlogo from "../assets/images/ttm-logo.png";
+import { useAuth } from "../context/AuthProvider";
+import Logout from "./Logout.jsx";
 
 const Navbar = () => {
   const [isDropdown, setIsDropdown] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [isSticky, setIsSticky] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+
+  // const handleDropdownToggle = (e) => {
+  //   if(e.isClicked === true) {
+  //     document.getElementById("dropdown").closest();
+  //   }
+  // }
+
+  const authUser = localStorage.getItem("Users");
+  console.log(authUser);
 
   useEffect(() => {
     const element = document.documentElement;
@@ -24,11 +36,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
+      setIsSticky(window.scrollY > 100);
     };
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -36,38 +44,66 @@ const Navbar = () => {
     };
   }, []);
 
-  function handleDarkModeToggle() {
-    setTheme(theme === "light" ? "dark" : "light");
-  }
+  const handleDarkModeToggle = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
 
-  function handleToggle() {
-    setIsDropdown(!isDropdown);
-  }
+  const handleToggle = () => {
+    setIsDropdown((prevDropdown) => !prevDropdown);
+  };
 
-  // 1:40
-  // bg-amber-500
   return (
     <>
       <nav
         className={`flex h-16 w-full justify-between items-center px-10 bg-white lg:px-20 fixed top-0 z-10 dark:bg-slate-900 dark:text-white ${
-          isSticky
-            ? "bg-slate-100 transition-all dark:bg-slate-900 dark:text-white"
-            : "bg-white"
+          isSticky ? "bg-slate-100 dark:bg-slate-900 transition-all" : "bg-white"
         }`}
       >
-        <div className="w-1/2">
-          <a href="/home">
-            <img src={ttmlogo} alt="T T M" className={`w-16 h-16 ${theme === "dark" ? "logo-dark" : "logo-light"} `} />
-          </a>
-        </div>
-        <div>
-          {isDropdown ? null : (
-            <label className="w-7 h-7 swap swap-rotate mt-1 lg:mr-10 relative">
-              <input
-                type="checkbox"
-                className="theme-controller"
-                value="synthwave"
+        <div className="md:hidden mt-1 relative z-10">
+          <button onClick={handleToggle}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
               />
+            </svg>
+          </button>
+          {isDropdown && (
+            <div className="dropdown">
+              <ul className="w-36 py-2 rounded-md mt-24 bg-gray-500 text-white">
+                <li className="mt-2 h-8 text-center rounded-md font-semibold hover:bg-gray-300">
+                  <Link to="/chat">Chat</Link>
+                </li>
+                <li className="mt-2 h-8 text-center rounded-md font-semibold hover:bg-gray-300">
+                  <Link to="/model">Models</Link>
+                </li>
+                <li className="mt-2 h-8 text-center rounded-md font-semibold hover:bg-gray-300">
+                  <Link to="/history">History</Link>
+                </li>
+                <li className="mt-2 h-8 text-center rounded-md font-semibold hover:bg-gray-300">
+                  <Link to="/about">About</Link>
+                </li>
+              </ul>
+            </div>
+          )}
+        </div>
+        <div className="w-1/2 absolute ml-7 md:relative md:ml-0">
+          <Link to="/">
+            <img src={ttmlogo} alt="T T M" className={`w-16 h-16 ${theme === "dark" ? "logo-dark" : "logo-light"}`} />
+          </Link>
+        </div>
+        <div className="sm:w-0 w-1/2 flex justify-end gap-5">
+          {!isDropdown && (
+            <label className="w-7 h-7 swap swap-rotate mt-1 sm:relative">
+              <input type="checkbox" className="theme-controller" value="synthwave" />
               <svg
                 className="swap-off fill-current w-7 h-7"
                 xmlns="http://www.w3.org/2000/svg"
@@ -87,57 +123,31 @@ const Navbar = () => {
             </label>
           )}
         </div>
-        <div className="justify-between w-2/5 hidden sm:flex">
+        {authUser ? <Logout /> : (
+        <div className="md:hidden text-xl bg-amber-500 hover:bg-amber-600 px-2 py-1 text-white underline-offset-8 rounded-md text-center">
+          <Link to="/login">Login</Link>
+        </div>
+        )}
+        <div className="justify-between w-2/5 hidden md:flex">
           <ul className="flex justify-between w-full items-center">
             <li className="text-xl hover:underline underline-offset-8 rounded-md text-center">
-              <a href="/chat">Chat</a>
+              <Link to="/chat">Chat</Link>
             </li>
             <li className="text-xl hover:underline underline-offset-8 rounded-md text-center">
-              <a href="/model">Models</a>
+              <Link to="/model">Models</Link>
             </li>
             <li className="text-xl hover:underline underline-offset-8 rounded-md text-center">
-              <a href="/history">History</a>
+              <Link to="/history">History</Link>
             </li>
             <li className="text-xl hover:underline underline-offset-8 rounded-md text-center">
-              <a href="/about">About</a>
+              <Link to="/about">About</Link>
             </li>
+            {authUser ? <Logout /> : (
+              <li className="text-xl bg-amber-500 hover:bg-amber-600 px-2 py-1 text-white underline-offset-8 rounded-md text-center">
+                <Link to="/login">Login</Link>
+              </li>
+            )}
           </ul>
-        </div>
-        <div className="sm:hidden mt-1">
-          <button onClick={handleToggle}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </button>
-          {isDropdown === true ? (
-            <div className="">
-              <ul className="w-36 py-2 max-w rounded-md mt-24 duration-300 bg-gray-600 relative right-0 z-10">
-                <li className=" mt-2 h-8 text-center rounded-md font-semibold hover:bg-gray-300">
-                  <a href="/chat">Chat</a>
-                </li>
-                <li className=" mt-2 h-8 text-center rounded-md font-semibold hover:bg-gray-300">
-                  <a href="/model">Models</a>
-                </li>
-                <li className=" mt-2 h-8 text-center rounded-md font-semibold hover:bg-gray-300">
-                  <a href="/history">History</a>
-                </li>
-                <li className="mt-2 h-8 text-center rounded-md font-semibold hover:bg-gray-300">
-                  <a href="/about">About</a>
-                </li>
-              </ul>
-            </div>
-          ) : null}
         </div>
       </nav>
     </>

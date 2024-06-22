@@ -37,7 +37,7 @@ const Model = () => {
             <input type="radio"className='ml-7 mr-4' name="rating"/><span className='text-red-500'>10</span>
             </div>
             <input type="submit" className='border-2 border-blue-500 h-10 w-36 rounded-md bg-blue-500 text-white font-bold'/>
-            <span className='text-sm text-amber-500 font-bold mt-2'>Records are being tracked</span>
+            <span className='text-sm text-amber-500 font-bold mt-2'>Note: Records are being tracked</span>
           </div>
         </div>
     </div>
