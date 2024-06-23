@@ -25,14 +25,14 @@ const Login = () => {
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log("Login submitted with data: ", data);
+    // console.log("Login submitted with data: ", data);
     const userInfo = {
       username: data.username,
       password: data.password,
     }
     await axios.post("http://localhost:4001/user/login", userInfo)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if(res.data){
           toast.success('Login successful.');
           localStorage.setItem("Users", JSON.stringify(res.data.user));

@@ -3,6 +3,7 @@ import Home from "./home/Home.jsx"
 import Models from "./modelss/Model.jsx"
 import Abouts from "./about/About.jsx"
 import Login from "./login/Login.jsx"
+import History from './history/History.jsx'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast';
 import { useAuth } from './context/AuthProvider.jsx'

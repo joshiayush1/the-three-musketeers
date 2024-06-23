@@ -16,7 +16,7 @@ connectDB();
 //middlewares
 app.use(express.json());
 app.use(cors());
-app.use("/model", modelRouter);
+app.use("/models", modelRouter);
 app.use("/user", userRouter);
 
 app.get("/", (req, res) => {

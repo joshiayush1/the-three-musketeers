@@ -17,7 +17,7 @@ const Navbar = () => {
   // }
 
   const authUser = localStorage.getItem("Users");
-  console.log(authUser);
+  // console.log(authUser);
 
   useEffect(() => {
     const element = document.documentElement;
@@ -80,7 +80,7 @@ const Navbar = () => {
             <div className="dropdown">
               <ul className="w-36 py-2 rounded-md mt-24 bg-gray-500 text-white">
                 <li className="mt-2 h-8 text-center rounded-md font-semibold hover:bg-gray-300">
-                  <Link to="/chat">Chat</Link>
+                  <Link to="">Chat</Link>
                 </li>
                 <li className="mt-2 h-8 text-center rounded-md font-semibold hover:bg-gray-300">
                   <Link to="/model">Models</Link>
@@ -100,7 +100,7 @@ const Navbar = () => {
             <img src={ttmlogo} alt="T T M" className={`w-16 h-16 ${theme === "dark" ? "logo-dark" : "logo-light"}`} />
           </Link>
         </div>
-        <div className="sm:w-0 w-1/2 flex justify-end gap-5">
+        <div className="md:w-0 w-1/2 flex justify-end gap-5">
           {!isDropdown && (
             <label className="w-7 h-7 swap swap-rotate mt-1 sm:relative">
               <input type="checkbox" className="theme-controller" value="synthwave" />
@@ -133,7 +133,7 @@ const Navbar = () => {
         <div className="justify-between w-2/5 hidden md:flex">
           <ul className="flex justify-between w-full items-center">
             <li className="text-xl hover:underline underline-offset-8 rounded-md text-center">
-              <Link to="/chat">Chat</Link>
+              <Link to="">Chat</Link>
             </li>
             <li className="text-xl hover:underline underline-offset-8 rounded-md text-center">
               <Link to="/model">Models</Link>
