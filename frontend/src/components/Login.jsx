@@ -46,7 +46,7 @@ const Login = () => {
       })
   };
 
-  if (redirect) {
+  if (redirect === true) {
     return <Navigate to="/" />;
   }
 

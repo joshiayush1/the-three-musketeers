@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import bannerImage from "../assets/images/WhatsApp Image 2024-06-11 at 19.41.52_aff227c5.jpg";
+import bannerImage2 from "../assets/images/WhatsApp Image 2024-07-01 at 16.44.16_cdcec3bd2.jpg";
 
 const Banner = () => {
   const [theme, setTheme] = useState("light"); 
@@ -16,7 +17,7 @@ const Banner = () => {
         <div className="w-full h-full md:flex md:h-screen md:flex-row flex flex-col-reverse">
           <div className="left w-full h-1/2 md:flex md:h-full md:w-1/2">
             <img
-              src={bannerImage}
+              src={bannerImage2}
               alt="Something went wrong..."
               className="w-full h-full object-cover"
             />

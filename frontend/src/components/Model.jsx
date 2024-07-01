@@ -85,7 +85,7 @@ const Model = () => {
         </h1>
         <p className="mb-2">
           With the average rating of :{" "}
-          <span className="text-amber-500">"{averageRating}"</span>
+          <span className="text-amber-500">"{averageRating}"</span>,
         </p>
         <p className="mb-8">
           Total models are :{" "}
@@ -103,7 +103,7 @@ const Model = () => {
               value={increment}
               onChange={handleIncrementChange}
               required
-              className="border-2 border-gray-300 outline-none px-2 h-6 w-52 rounded-md"
+              className="border-2 border-gray-300 outline-none px-2 h-6 w-52 rounded-md dark:text-black"
             />
           </div>
           <div>
