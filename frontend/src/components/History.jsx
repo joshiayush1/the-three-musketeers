@@ -7,7 +7,7 @@ const History = () => {
   useEffect(() => {
     const models = async () => {
       await axios
-        .post("http://localhost:4001/models/allmodels")
+        .post("https://the-three-musketeers-backend.onrender.com/models/allmodels")
         .then((res) => {
           // console.log("Response from backend:", res.data);
           setAllModels(res.data.models);
