@@ -14,7 +14,7 @@ const Model = () => {
     const fetchLastUpdatedModel = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4001/models/lastUpdatedModel"
+          "https://the-three-musketeers-backend.onrender.com/models/lastUpdatedModel"
         );
         setLastUpdatedModel(response.data.model);
         setAverageRating(response.data.averageRating.toFixed(2));
