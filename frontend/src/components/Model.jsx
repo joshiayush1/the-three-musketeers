@@ -55,7 +55,7 @@ const Model = () => {
     };
     try {
       const response = await axios.post(
-        "http://localhost:4001/models/model",
+        "https://the-three-musketeers-backend.onrender.com/models/model",
         data
       );
 
