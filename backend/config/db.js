@@ -7,8 +7,8 @@ const URI = process.env.MongoDBURI;
 export const connectDB = async () => {
   try {
     await mongoose.connect(URI, {
-    //   useNewUrlParser: true,
-    //   useUnifiedTopology: true,
+      // useNewUrlParser: true,
+      // useUnifiedTopology: true,
     });
     console.log("DB connected");
   } catch (err) {
