@@ -51,9 +51,11 @@ const Login = () => {
   }
 
   return (
-    <div className="flex justify-center items-center w-full h-screen bg-gradient-to-r from-amber-500 to-yellow-200">
-      <div className="flex justify-center items-center flex-col bg-white/55 rounded-lg backdrop-sepia-0 shadow-lg shadow-red-900">
-        <h1 className="text-4xl font-extrabold text-black mt-10">
+    <div className="flex justify-center items-center w-full h-screen">
+      {/* bg-gradient-to-r from-amber-200 to-yellow-100 */}
+      <div className="w-72 sm:w-96 flex justify-center items-center flex-col rounded-lg backdrop-sepia-0 shadow-lg">
+      {/* bg-white/55 backdrop-sepia-0 */}
+        <h1 className="text-3xl font-extrabold text-black mt-10">
           Login Panel
         </h1>
         <form
@@ -66,7 +68,7 @@ const Login = () => {
             onChange={onChangeHandler}
             value={data.username}
             placeholder="Username"
-            className="border-solid h-10 w-72 font-bold rounded-md mb-2 px-3 outline-none"
+            className="border-solid h-10 border-2 border-gray font-bold rounded-md mb-2 px-3 outline-none"
             required
           />
           <input
@@ -75,19 +77,18 @@ const Login = () => {
             onChange={onChangeHandler}
             value={data.password}
             placeholder="Password"
-            className="border-solid h-10 w-72 font-bold rounded-md px-3 outline-none"
+            className="border-solid h-10 border-2 border-gray font-bold rounded-md px-3 outline-none"
             required
           />
           <input
             type="submit"
             value="Login"
-            className=" mt-2 h-10 w-32 font-bold rounded-md text-white px-3 bg-amber-500 hover:bg-amber-400 cursor-pointer"
+            className="mt-2 h-10 w-32 font-bold rounded-md text-white px-3 bg-amber-500 hover:bg-amber-400 cursor-pointer"
           />
         </form>
-        <p className="text-red-600 font-bold mb-5">
+        <p className="text-red-600 font-bold mb-5 px-2 text-xs sm:text-base text-center">
           Note: Only Admins are allowed to access this
-          <br />
-          website, information are{" "}
+           website, information are{" "}
           <span className="text-blue-500">confidential</span>.
         </p>
       </div>

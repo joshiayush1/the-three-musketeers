@@ -55,7 +55,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`flex h-16 w-full justify-between items-center px-10 bg-white lg:px-20 fixed top-0 z-10 dark:bg-slate-900 dark:text-white ${
+        className={`flex h-16 w-full justify-between items-center px-6 bg-white lg:px-20 fixed top-0 z-10 dark:bg-slate-900 dark:text-white ${
           isSticky ? "bg-slate-100 dark:bg-slate-900 transition-all" : "bg-white"
         }`}
       >

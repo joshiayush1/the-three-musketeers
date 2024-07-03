@@ -80,20 +80,20 @@ const Model = () => {
   return (
     <div className="w-full min-h-screen flex justify-center items-center relative">
       <div className="iptBox h-full w-full flex flex-col justify-center items-center">
-        <h1 className="text-3xl mb-4 font-bold">
+        <h1 className="sm:text-3xl text-xl mb-4 font-bold">
           Hey <span className="text-amber-500">{user}</span> :)
         </h1>
         <p className="mb-2">
           With the average rating of :{" "}
           <span className="text-amber-500">"{averageRating}"</span>,
         </p>
-        <p className="mb-8">
+        <p className="mb-6">
           Total models are :{" "}
           <span className="text-amber-500">"{lastUpdatedModel.increment}"</span>
         </p>
         <form onSubmit={handleSubmit} className="text-center">
-          <div className="flex flex-col mb-10 justify-center items-center">
-            <label htmlFor="increment" className="text-xl">
+          <div className="flex flex-col mb-3 justify-center items-center">
+            <label htmlFor="increment" className="sm:text-xl">
               Change it to:
             </label>
             <input
@@ -103,15 +103,15 @@ const Model = () => {
               value={increment}
               onChange={handleIncrementChange}
               required
-              className="border-2 border-gray-300 outline-none px-2 h-6 w-52 rounded-md dark:text-black"
+              className="border-2 border-gray-300 outline-none px-2 h-6 sm:w-52 w-40 rounded-md dark:text-black"
             />
           </div>
           <div>
-            <label htmlFor="rating" className="text-2xl">
+            <label htmlFor="rating" className="sm:text-xl">
               What was their average rating?
             </label>
           </div>
-          <div className="lg:flex gap-5 text-center text-xl font-extrabold mt-5 mb-5">
+          <div className="lg:flex gap-5 text-center sm:text-xl font-extrabold mt-2 mb-5">
             {[...Array(10)].map((_, index) => (
               <React.Fragment key={index}>
                 <input
@@ -135,7 +135,7 @@ const Model = () => {
           </div>
           <button
             type="submit"
-            className="border-2 border-blue-500 h-10 w-36 rounded-md bg-blue-500 text-white font-bold"
+            className="border-2 border-blue-500 sm:h-10 sm:w-36 h-8 w-24 rounded-md bg-blue-500 text-white font-bold"
           >
             Submit
           </button>
