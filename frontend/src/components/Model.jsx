@@ -47,7 +47,9 @@ const Model = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-
+    const logVal = document.getElementById("submitting");
+    logVal.value = "Submitting";
+    
     const data = {
       increment: parseInt(increment),
       rating: parseInt(rating),
@@ -134,6 +136,7 @@ const Model = () => {
             ))}
           </div>
           <button
+          id="submitting"
             type="submit"
             className="border-2 border-blue-500 sm:h-10 sm:w-36 h-8 w-24 rounded-md bg-blue-500 text-white font-bold"
           >
