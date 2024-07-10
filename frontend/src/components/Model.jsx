@@ -74,6 +74,7 @@ const Model = () => {
       setIncrement("");
       setRating("");
     } catch (error) {
+    logVal.value = "Submit";
       console.error("Error saving data:", error);
       toast.error(error.message);
     }

@@ -23,11 +23,11 @@ const Login = () => {
   // const notifySignupSuccess = () => toast('Signup successful.');
   // const notifySignupNotSuccess = () => toast('Signup not successful');
 
+  const logVal = document.getElementById("login");
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     // console.log("Login submitted with data: ", data);
 
-    const logVal = document.getElementById("login");
     logVal.value = "Logging in";
 
     const userInfo = {
@@ -49,6 +49,7 @@ const Login = () => {
         localStorage.setItem("Users", JSON.stringify(res.data.user));
       })
       .catch((err) => {
+        logVal.value = "Login";
         console.log(err.data);
         toast.error("Error:" + err.response.data.message);
       });
