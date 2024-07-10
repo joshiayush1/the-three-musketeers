@@ -28,7 +28,7 @@ const About = () => {
                 className="w-full h-full rounded-md"
               />
               <h1 className="text-2xl font-bold mt-5">Abhay Sharma</h1>
-              <p className="text-amber-500">Pursuing MBBS</p>
+              <p className="text-amber-500">Pursuing B.P.Th</p>
             </div>
             <div className="AyushAbout w-full border-gray-700 rounded-md border-2 h-full flex flex-col justify-center items-center">
               <img
@@ -46,7 +46,7 @@ const About = () => {
                 className="h-full w-full rounded-md"
               />
               <h1 className="text-2xl font-bold mt-5">Bipin Yadav</h1>
-              <p className="text-amber-500">Pursuing Btech</p>
+              <p className="text-amber-500">Pursuing Btech in Robotics</p>
             </div>
           </Slider>
         </div>
